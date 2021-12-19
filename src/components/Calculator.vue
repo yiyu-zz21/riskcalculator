@@ -99,8 +99,8 @@
                   </el-row>
                   <el-form-item>
                     <el-row>
-                      <el-col :span="8"></el-col>
-                      <el-col :span="16">
+                      <el-col :span="10"></el-col>
+                      <el-col :span="14">
                         <el-button type="primary" @click="onSubmit(form)">Submit</el-button>
                         <el-button type="text" @click="onCancel()">Cancel</el-button>
                       </el-col>
@@ -109,6 +109,31 @@
                   </tbody>
                 </table>
               </el-form>
+              <br/>
+              <h2 align="center">Result</h2>
+              <br/>
+              <el-row>
+                <el-col :span="2"></el-col>
+                <el-col :span="4">
+                  预测概率
+                </el-col>
+                <el-col :span="6">
+                  <el-input v-model="predicted" readonly="true" placeholder="Please Submit"></el-input>
+                </el-col>
+                <el-col :span="12"></el-col>
+              </el-row>
+              <el-row>
+                <el-col :span="2"></el-col>
+                <el-col :span="4">
+                  if
+                </el-col>
+                <el-col :span="6">
+                  <el-input v-model="risk" readonly="true" placeholder="Please Submit"></el-input>
+                </el-col>
+                <el-col :span="12"></el-col>
+              </el-row>
+              <br/>
+              <br/>
             </el-tab-pane>
             <el-tab-pane label="Postoperative Calculator">Postoperative Calculator</el-tab-pane>
           </el-tabs>
@@ -161,32 +186,38 @@ export default {
           label: 'N2',
         },
       ],
+
+      predicted: '',
+      risk: '',
     }
   },
   methods: {
     onSubmit(form) {
-      if(this.form.StagSelect.length == 0 || this.form.Far.length == 0 || this.form.DiffSelect.length == 0 || this.form.CA199.length == 0){
+      if (this.form.StagSelect.length == 0 || this.form.Far.length == 0 || this.form.DiffSelect.length == 0 || this.form.CA199.length == 0) {
         alert("请完整填写信息")
-      }else {
+      } else {
         console.log(form);
         //转换成数字字符串传输
-        if(this.form.DiffSelect == 1){
+        if (this.form.DiffSelect == 1) {
           this.form.TumorDiff = "0";
-        }else if(this.form.DiffSelect == 2){
+        } else if (this.form.DiffSelect == 2) {
           this.form.TumorDiff = "0.87532783375395700";
-        }else if(this.form.DiffSelect == 3){
+        } else if (this.form.DiffSelect == 3) {
           this.form.TumorDiff = "1.218195171925550000";
         }
 
-        if(this.form.StagSelect == 1){
+        if (this.form.StagSelect == 1) {
           this.form.Staging = "0";
-        }else if(this.form.StagSelect == 2){
+        } else if (this.form.StagSelect == 2) {
           this.form.Staging = "0.89364066626980100";
-        }else if(this.form.StagSelect == 3){
+        } else if (this.form.StagSelect == 3) {
           this.form.Staging = "1.686727261417380000";
         }
         api.postList(form).then((res) => {
-          console.log(res.data);
+          this.predicted = res.data.predicted;
+          this.risk = res.data.risk;
+          console.log(res.data.predicted);
+          console.log(res.data.risk);
         })
       }
     },
@@ -195,6 +226,8 @@ export default {
       this.form.Far = '';
       this.form.DiffSelect = '';
       this.form.CA199 = '';
+      this.predicted = '';
+      this.risk = '';
       console.log("cancel");
     },
   }
