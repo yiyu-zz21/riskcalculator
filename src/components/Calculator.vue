@@ -1,47 +1,34 @@
 <template>
   <div>
     <div class="calculator">
-      <h2 class="title1">Risk Calculators to Predict Morbidity in Patients Undergoing Liver Resection for Hepatocellular
-        Carcinoma</h2>
+      <h2 class="title1">{{ $t('header.title2') }}</h2>
       <div class="contains">
         <p>
           <strong>
-            This easy-to-use prediction model aims to calculate the probability of overall morbidity and major morbidity
-            in patients undergoing liver resection for hepatocellular carcinoma (HCC). The model takes into account both
-            preoperative and postoperative conditions and can be switched at will. This online tool can be useful in
-            clinical practice by offering information based on the patient and tumor, and surgery.
+            {{ $t('header.introduce1')}}
           </strong>
         </p>
       </div>
       <strong>
-        <p>This prediction tool also known as nomogram is based on data from liver resection for HCC study project
-          participated by several major medical centers in China. The model incorporated seven parameters including
-          albumin-bilirubin grade (ALBI), aspartate transaminase to platelet index (APRI), cirrhosis, portal
-          hypertension, largest tumor size intraoperative transfusion and major hepatectomy so as to predict the risk of
-          morbidity after liver resection for HCC. Patients with high-risk of morbidity should receive more intensive
-          postoperative surveillance. In this way, this prediction model could facilitate individualized decision
-          making, and further reduce the incidence of morbidity. The model was originated from clinical data of 2301
-          patients.</p>
-        <p>Please note that the present model did not specify a specific threshold at which adjuvant therapy should be
-          recommended. We believe that the final decision should be made after thoughtful discussion between clinician
-          and patient according actual situation.</p>
+        <p>{{ $t('header.introduce2')}}</p>
+        <p>{{ $t('header.introduce3')}}</p>
         <div class="calculatorborder">
           <el-tabs type="border-card">
-            <el-tab-pane label="Preoperative Calculator">
+            <el-tab-pane :label= " $t('header.tab1') ">
               <el-form ref="form" :model="form">
                 <table class="container">
                   <tbody>
                   <tr align="center">
                     <td>
                       <p>
-                        Click the underlined variables
+                        {{ $t('header.page1') }}
                         <br>
-                        to get more information.
+                        {{ $t('header.page2') }}
                         <br>
                         <br>
-                        Please fill in all the fields
+                        {{ $t('header.page3') }}
                         <br>
-                        and click the submit.
+                        {{ $t('header.page4') }}
                         <br>
                         <br>
                       </p>
@@ -52,9 +39,9 @@
                     <el-col :span="12">
                       <el-form-item label="FAR">
                         <el-input v-model="form.Far">
-                          <template #suffix>
-                            μmol/L
-                          </template>
+<!--                          <template #suffix>-->
+<!--                            μmol/L-->
+<!--                          </template>-->
                         </el-input>
                       </el-form-item>
                     </el-col>
@@ -62,10 +49,10 @@
 
                     <el-col :span="2">2)</el-col>
                     <el-col :span="12">
-                      <el-form-item label="CA199">
+                      <el-form-item label="CA19-9">
                         <el-input v-model="form.CA199">
                           <template #suffix>
-                            μmol/L
+                            U/mL
                           </template>
                         </el-input>
                       </el-form-item>
@@ -76,9 +63,9 @@
                       <el-form-item label="肿瘤分化">
                         <el-select v-model="form.DiffSelect" filterable placeholder="请选择" style="width: 100%"
                                    value-key="value">
-                          <el-option v-for="item in tumorList" :key="item.value" :label="item.value + ':' + item.label"
+                          <el-option v-for="item in tumorList" :key="item.value" :label="item.label"
                                      :value="item.value">
-                            <span style="float: left">{{ item.value }} : {{ item.label }}</span>
+                            <span style="float: left">{{ item.label }}</span>
                           </el-option>
                         </el-select>
                       </el-form-item>
@@ -101,8 +88,8 @@
                     <el-row>
                       <el-col :span="10"></el-col>
                       <el-col :span="14">
-                        <el-button type="primary" @click="onSubmit(form)">Submit</el-button>
-                        <el-button type="text" @click="onCancel()">Cancel</el-button>
+                        <el-button type="primary" @click="onSubmit(form)">{{ $t('header.submit') }}</el-button>
+                        <el-button type="text" @click="onCancel()">{{ $t('header.cancel') }}</el-button>
                       </el-col>
                     </el-row>
                   </el-form-item>
@@ -110,22 +97,23 @@
                 </table>
               </el-form>
               <br/>
-              <h2 align="center">Result</h2>
+              <h2 align="center">{{ $t('header.result') }}</h2>
               <br/>
               <el-row>
                 <el-col :span="2"></el-col>
                 <el-col :span="4">
-                  预测概率
+                  {{ $t('header.predicted') }}
                 </el-col>
                 <el-col :span="6">
                   <el-input v-model="predicted" readonly="true" placeholder="Please Submit"></el-input>
                 </el-col>
                 <el-col :span="12"></el-col>
               </el-row>
+              <br/>
               <el-row>
                 <el-col :span="2"></el-col>
                 <el-col :span="4">
-                  if
+                  {{ $t('header.risk') }}
                 </el-col>
                 <el-col :span="6">
                   <el-input v-model="risk" readonly="true" placeholder="Please Submit"></el-input>
@@ -135,7 +123,7 @@
               <br/>
               <br/>
             </el-tab-pane>
-            <el-tab-pane label="Postoperative Calculator">Postoperative Calculator</el-tab-pane>
+<!--            <el-tab-pane label="Postoperative Calculator">Postoperative Calculator</el-tab-pane>-->
           </el-tabs>
         </div>
       </strong>
@@ -222,7 +210,7 @@ export default {
       }
     },
     onCancel() {
-      this.form.Staging = '';
+      this.form.StagSelect = '';
       this.form.Far = '';
       this.form.DiffSelect = '';
       this.form.CA199 = '';

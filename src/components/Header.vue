@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="radios">
-      <h1 class="h1-font">Preoperative and Postoperatibe Calculators to Predict Morbidity after Liver Resection for Hepatocellular Carcinoma (HCC)</h1>
+      <h1 class="h1-font">{{ $t('header.title1')}}</h1>
     </div>
   </div>
 </template>
