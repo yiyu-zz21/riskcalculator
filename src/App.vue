@@ -9,17 +9,18 @@
 <!--    <el-button type="primary">el-button</el-button>-->
 <!--  </div>-->
 <!--  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-  <Home></Home>
+  <router-view></router-view>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import Home from "@/views/Home";
+import Risk from "@/views/Risk";
+import Dcc from "@/views/Dcc";
 
 export default {
   name: 'App',
   components: {
-    Home,
+    // Risk,
     //HelloWorld
   }
 }

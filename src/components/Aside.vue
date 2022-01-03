@@ -9,7 +9,7 @@
       <!--      <el-button type="primary" @click="getChinese">中文</el-button>-->
       <!--    </el-row>-->
       <el-dropdown @command="handleSetLanguage">
-        <span class="el-dropdown-link">{{ $t('header.lang') }}
+        <span class="el-dropdown-link">{{ $t('risk.lang') }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         　　　　
@@ -48,7 +48,7 @@ export default {
       }
       language.value = lang;
       localStorage.setItem('lang', lang);
-      ElMessage.success('语言切换成功');
+      // ElMessage.success('语言切换成功');
       location.reload();
     }
   },

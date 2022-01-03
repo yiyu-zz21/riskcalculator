@@ -20,9 +20,19 @@ export const postList = (params) => {
     });
 };
 
+
+export const dccList = (params) => {
+    return axios({
+        url: `/dcc/post`,
+        method: 'post',
+        data: params
+    })
+}
+
 const api = {
     getList,
     postList,
+    dccList,
 }
 
 export default api;

@@ -1,34 +1,34 @@
 <template>
   <div>
     <div class="calculator">
-      <h2 class="title1">{{ $t('header.title2') }}</h2>
+      <h2 class="title1">{{ $t('risk.title2') }}</h2>
       <div class="contains">
         <p>
           <strong>
-            {{ $t('header.introduce1')}}
+            {{ $t('risk.introduce1')}}
           </strong>
         </p>
       </div>
       <strong>
-        <p>{{ $t('header.introduce2')}}</p>
-        <p>{{ $t('header.introduce3')}}</p>
+        <p>{{ $t('risk.introduce2')}}</p>
+        <p>{{ $t('risk.introduce3')}}</p>
         <div class="calculatorborder">
           <el-tabs type="border-card">
-            <el-tab-pane :label= " $t('header.tab1') ">
+            <el-tab-pane :label= " $t('risk.tab1') ">
               <el-form ref="form" :model="form">
                 <table class="container">
                   <tbody>
                   <tr align="center">
                     <td>
                       <p>
-                        {{ $t('header.page1') }}
+                        {{ $t('risk.page1') }}
                         <br>
-                        {{ $t('header.page2') }}
+                        {{ $t('risk.page2') }}
                         <br>
                         <br>
-                        {{ $t('header.page3') }}
+                        {{ $t('risk.page3') }}
                         <br>
-                        {{ $t('header.page4') }}
+                        {{ $t('risk.page4') }}
                         <br>
                         <br>
                       </p>
@@ -60,7 +60,7 @@
                     <el-col :span="10"></el-col>
                     <el-col :span="2">3)</el-col>
                     <el-col :span="12">
-                      <el-form-item label="肿瘤分化">
+                      <el-form-item :label="$t('risk.tumorDiff')">
                         <el-select v-model="form.DiffSelect" filterable placeholder="请选择" style="width: 100%"
                                    value-key="value">
                           <el-option v-for="item in tumorList" :key="item.value" :label="item.label"
@@ -73,7 +73,7 @@
                     <el-col :span="10"></el-col>
                     <el-col :span="2">4)</el-col>
                     <el-col :span="12">
-                      <el-form-item label="N分期">
+                      <el-form-item :label="$t('risk.nstage')">
                         <el-select v-model="form.StagSelect" filterable placeholder="请选择" style="width: 100%"
                                    value-key="value">
                           <el-option v-for="item in stagingList" :key="item.value" :label="item.label"
@@ -88,8 +88,8 @@
                     <el-row>
                       <el-col :span="10"></el-col>
                       <el-col :span="14">
-                        <el-button type="primary" @click="onSubmit(form)">{{ $t('header.submit') }}</el-button>
-                        <el-button type="text" @click="onCancel()">{{ $t('header.cancel') }}</el-button>
+                        <el-button type="primary" @click="onSubmit(form)">{{ $t('risk.submit') }}</el-button>
+                        <el-button type="text" @click="onCancel()">{{ $t('risk.cancel') }}</el-button>
                       </el-col>
                     </el-row>
                   </el-form-item>
@@ -97,12 +97,12 @@
                 </table>
               </el-form>
               <br/>
-              <h2 align="center">{{ $t('header.result') }}</h2>
+              <h2 align="center">{{ $t('risk.result') }}</h2>
               <br/>
               <el-row>
                 <el-col :span="2"></el-col>
                 <el-col :span="4">
-                  {{ $t('header.predicted') }}
+                  {{ $t('risk.predicted') }}
                 </el-col>
                 <el-col :span="6">
                   <el-input v-model="predicted" readonly="true" placeholder="Please Submit"></el-input>
@@ -113,7 +113,7 @@
               <el-row>
                 <el-col :span="2"></el-col>
                 <el-col :span="4">
-                  {{ $t('header.risk') }}
+                  {{ $t('risk.risk') }}
                 </el-col>
                 <el-col :span="6">
                   <el-input v-model="risk" readonly="true" placeholder="Please Submit"></el-input>
@@ -135,7 +135,7 @@
 import api from "@/axios/api";
 
 export default {
-  name: "Calculator",
+  name: "RiskCalculator",
   data() {
     return {
       form: {

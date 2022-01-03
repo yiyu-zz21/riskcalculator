@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="radios">
-      <h1 class="h1-font">{{ $t('header.title1')}}</h1>
+      <h1 class="h1-font">{{ $t('dcc.title1')}}</h1>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "DccHeader"
 }
 </script>
 
