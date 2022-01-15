@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Risk from '../views/Risk.vue'
+import Risk from '../views/Pdac.vue'
 
 const routes = [
   {
     path: '/',
-    redirect: '/risk',
+    redirect: '/pdac',
   },
   {
     path: '/about',
@@ -15,9 +15,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/risk',
-    name: 'Risk',
-    component: () => import('../views/Risk.vue')
+    path: '/pdac',
+    name: 'Pdac',
+    component: () => import('../views/Pdac.vue')
   },
   {
     path: '/dcc',

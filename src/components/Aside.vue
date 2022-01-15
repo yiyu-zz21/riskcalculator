@@ -9,7 +9,7 @@
       <!--      <el-button type="primary" @click="getChinese">中文</el-button>-->
       <!--    </el-row>-->
       <el-dropdown @command="handleSetLanguage">
-        <span class="el-dropdown-link">{{ $t('risk.lang') }}
+        <span class="el-dropdown-link">{{ $t('risks.lang') }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         　　　　

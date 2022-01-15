@@ -1,6 +1,8 @@
 module.exports = {
-    risk: {
+    risks: {
         lang: '中文',
+    },
+    pdac: {
         title1: '胰头癌术后早期复发网页计算器',
         title2: '介绍',
         introduce1: '该网页计算器用于计算胰十二指肠切除术后胰头癌患者的早期复发概率。',

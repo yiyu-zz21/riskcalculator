@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="radios">
-      <h1 class="h1-font">{{ $t('risk.title1')}}</h1>
+      <h1 class="h1-font">{{ $t('pdac.title1')}}</h1>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "RiskHeader"
+  name: "PdacHeader"
 }
 </script>
 

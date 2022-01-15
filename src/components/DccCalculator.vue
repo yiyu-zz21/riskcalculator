@@ -51,9 +51,9 @@
                     <el-col :span="12">
                       <el-form-item :label="$t('dcc.diameter')">
                         <el-input v-model="form.Diameter">
-<!--                          <template #suffix>-->
-<!--                            U/mL-->
-<!--                          </template>-->
+                          <template #suffix>
+                            cm
+                          </template>
                         </el-input>
                       </el-form-item>
                     </el-col>

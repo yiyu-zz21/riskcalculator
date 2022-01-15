@@ -1,6 +1,8 @@
 module.exports = {
-    risk: {
+    risks: {
         lang: 'English',
+    },
+    pdac: {
         title1: 'Web calculator for predicting early recurrence of PDAC after PD',
         title2: 'introduce',
         introduce1: 'The web calculator was used to calculate the probability of early recurrence of pancreatic head cancer after pancreaticoduodenectomy.',

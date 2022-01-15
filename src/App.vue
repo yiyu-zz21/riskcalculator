@@ -14,7 +14,7 @@
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import Risk from "@/views/Risk";
+import Risk from "@/views/Pdac";
 import Dcc from "@/views/Dcc";
 
 export default {

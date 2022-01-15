@@ -3,10 +3,10 @@
 <!--    <img alt="Vue logo" src="../assets/logo.png">-->
 <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <el-container>
-      <el-header height="20%"><RiskHeader/></el-header>
+      <el-header height="20%"><PdacHeader/></el-header>
       <el-container>
         <el-aside width="200px"><Aside/></el-aside>
-        <el-main><RiskCalculator/></el-main>
+        <el-main><PdacCalculator/></el-main>
       </el-container>
     </el-container>
   </div>
@@ -15,16 +15,16 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import RiskHeader from "@/components/RiskHeader";
+import PdacHeader from "@/components/PdacHeader";
 import Aside from "@/components/Aside";
-import RiskCalculator from "@/components/RiskCalculator";
+import PdacCalculator from "@/components/PdacCalculator";
 
 export default {
-  name: 'Risk',
+  name: 'Pdac',
   components: {
-    RiskHeader,
+    PdacHeader,
     Aside,
-    RiskCalculator
+    PdacCalculator
   }
 }
 </script>

@@ -1,34 +1,34 @@
 <template>
   <div>
     <div class="calculator">
-      <h2 class="title1">{{ $t('risk.title2') }}</h2>
+      <h2 class="title1">{{ $t('pdac.title2') }}</h2>
       <div class="contains">
         <p>
           <strong>
-            {{ $t('risk.introduce1')}}
+            {{ $t('pdac.introduce1')}}
           </strong>
         </p>
       </div>
       <strong>
-        <p>{{ $t('risk.introduce2')}}</p>
-        <p>{{ $t('risk.introduce3')}}</p>
+        <p>{{ $t('pdac.introduce2')}}</p>
+        <p>{{ $t('pdac.introduce3')}}</p>
         <div class="calculatorborder">
           <el-tabs type="border-card">
-            <el-tab-pane :label= " $t('risk.tab1') ">
+            <el-tab-pane :label= " $t('pdac.tab1') ">
               <el-form ref="form" :model="form">
                 <table class="container">
                   <tbody>
                   <tr align="center">
                     <td>
                       <p>
-                        {{ $t('risk.page1') }}
+                        {{ $t('pdac.page1') }}
                         <br>
-                        {{ $t('risk.page2') }}
+                        {{ $t('pdac.page2') }}
                         <br>
                         <br>
-                        {{ $t('risk.page3') }}
+                        {{ $t('pdac.page3') }}
                         <br>
-                        {{ $t('risk.page4') }}
+                        {{ $t('pdac.page4') }}
                         <br>
                         <br>
                       </p>
@@ -60,7 +60,7 @@
                     <el-col :span="10"></el-col>
                     <el-col :span="2">3)</el-col>
                     <el-col :span="12">
-                      <el-form-item :label="$t('risk.tumorDiff')">
+                      <el-form-item :label="$t('pdac.tumorDiff')">
                         <el-select v-model="form.DiffSelect" filterable placeholder="请选择" style="width: 100%"
                                    value-key="value">
                           <el-option v-for="item in tumorList" :key="item.value" :label="item.label"
@@ -73,7 +73,7 @@
                     <el-col :span="10"></el-col>
                     <el-col :span="2">4)</el-col>
                     <el-col :span="12">
-                      <el-form-item :label="$t('risk.nstage')">
+                      <el-form-item :label="$t('pdac.nstage')">
                         <el-select v-model="form.StagSelect" filterable placeholder="请选择" style="width: 100%"
                                    value-key="value">
                           <el-option v-for="item in stagingList" :key="item.value" :label="item.label"
@@ -88,8 +88,8 @@
                     <el-row>
                       <el-col :span="10"></el-col>
                       <el-col :span="14">
-                        <el-button type="primary" @click="onSubmit(form)">{{ $t('risk.submit') }}</el-button>
-                        <el-button type="text" @click="onCancel()">{{ $t('risk.cancel') }}</el-button>
+                        <el-button type="primary" @click="onSubmit(form)">{{ $t('pdac.submit') }}</el-button>
+                        <el-button type="text" @click="onCancel()">{{ $t('pdac.cancel') }}</el-button>
                       </el-col>
                     </el-row>
                   </el-form-item>
@@ -97,12 +97,12 @@
                 </table>
               </el-form>
               <br/>
-              <h2 align="center">{{ $t('risk.result') }}</h2>
+              <h2 align="center">{{ $t('pdac.result') }}</h2>
               <br/>
               <el-row>
                 <el-col :span="2"></el-col>
                 <el-col :span="4">
-                  {{ $t('risk.predicted') }}
+                  {{ $t('pdac.predicted') }}
                 </el-col>
                 <el-col :span="6">
                   <el-input v-model="predicted" readonly="true" placeholder="Please Submit"></el-input>
@@ -113,7 +113,7 @@
               <el-row>
                 <el-col :span="2"></el-col>
                 <el-col :span="4">
-                  {{ $t('risk.risk') }}
+                  {{ $t('pdac.risk') }}
                 </el-col>
                 <el-col :span="6">
                   <el-input v-model="risk" readonly="true" placeholder="Please Submit"></el-input>
@@ -135,7 +135,7 @@
 import api from "@/axios/api";
 
 export default {
-  name: "RiskCalculator",
+  name: "PdacCalculator",
   data() {
     return {
       form: {
