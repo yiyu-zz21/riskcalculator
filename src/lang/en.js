@@ -46,7 +46,7 @@ module.exports = {
         title2: 'Introduction',
         introduce1: 'The web calculator was used to calculate the probability of early recurrence of ampullary adenocarcinoma after pancreaticoduodenectomy.',
         introduce2: 'Please note：This web calculator only serves as a reference for clinical decision. The final decision should be made by the clinicians and patients after careful consideration based on the actual situation.',
-        introduce3: 'ampullary adenocarcinoma; PD：pancreaticoduodenectomy',
+        introduce3: 'Abbreviation: AAC: ampullary adenocarcinoma; PD：pancreaticoduodenectomy',
         tab1: 'Web Calculator',
         page1: 'Click the underlined variables',
         page2: 'to get more information.',
