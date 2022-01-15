@@ -29,10 +29,19 @@ export const dccList = (params) => {
     })
 }
 
+export const aacList = (params) => {
+    return axios({
+        url: `/aac/post`,
+        method: 'post',
+        data: params
+    })
+}
+
 const api = {
     getList,
     postList,
     dccList,
+    aacList,
 }
 
 export default api;

@@ -24,6 +24,11 @@ const routes = [
     name: 'Dcc',
     component: () => import('../views/Dcc.vue')
   },
+  {
+    path: '/aac',
+    name: 'Aac',
+    component: () => import('../views/Aac.vue')
+  },
 ]
 
 const router = createRouter({
