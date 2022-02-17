@@ -180,12 +180,17 @@ export default {
     }
   },
   methods: {
+    //点击提交后执行此方法
     onSubmit(form) {
+      //首先判断必填项是否都以填写
       if (this.form.StagSelect.length == 0 || this.form.Far.length == 0 || this.form.DiffSelect.length == 0 || this.form.CA199.length == 0) {
         alert("请完整填写信息")
       } else {
         console.log(form);
-        //转换成数字字符串传输
+        //转换成数字字符串传输，转换关系如下
+        //1---well---0
+        //2---moderate---0.8753278337539570
+        //3---poor---1.218195171925550000
         if (this.form.DiffSelect == 1) {
           this.form.TumorDiff = "0";
         } else if (this.form.DiffSelect == 2) {
@@ -194,6 +199,9 @@ export default {
           this.form.TumorDiff = "1.218195171925550000";
         }
 
+        //1---N0---0
+        //2---N1---0.89364066626980100
+        //3---N2---1.686727261417380000
         if (this.form.StagSelect == 1) {
           this.form.Staging = "0";
         } else if (this.form.StagSelect == 2) {
@@ -201,6 +209,7 @@ export default {
         } else if (this.form.StagSelect == 3) {
           this.form.Staging = "1.686727261417380000";
         }
+        //将整理好的数据使用axios发送给后端处理，并获取返回结果
         api.postList(form).then((res) => {
           this.predicted = res.data.predicted;
           this.risk = res.data.risk;

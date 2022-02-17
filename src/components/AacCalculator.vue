@@ -174,15 +174,15 @@ export default {
       stagingList: [
         {
           value: 1,
-          label: 'N0',
+          label: 'No',
         },
         {
           value: 2,
-          label: 'N1',
+          label: '≤3',
         },
         {
           value: 3,
-          label: 'N2',
+          label: '>3',
         },
       ],
 
@@ -191,12 +191,17 @@ export default {
     }
   },
   methods: {
+    //点击提交后执行此方法
     onSubmit(form) {
+      //首先判断必填项是否都以填写
       if (this.form.InvasionSelect.length == 0 || this.form.Diameter.length == 0 || this.form.DiffSelect.length == 0 || this.form.StagSelect.length == 0) {
         alert("请完整填写信息")
       } else {
         console.log(form);
-        //转换成数字字符串传输
+        //转换成数字字符串传输，转换关系如下
+        //1---well---0
+        //2---moderate---0.566833019008799
+        //3---poor---1.44566201109475
         if (this.form.DiffSelect == 1) {
           this.form.TumorDiff = "0";
         } else if (this.form.DiffSelect == 2) {
@@ -205,6 +210,9 @@ export default {
           this.form.TumorDiff = "1.44566201109475";
         }
 
+        //1---No---0
+        //2---≤3---0.920603684469587
+        //3--->3---1.85010150562131
         if (this.form.StagSelect == 1) {
           this.form.Staging = "0";
         } else if (this.form.StagSelect == 2) {
@@ -213,11 +221,14 @@ export default {
           this.form.Staging = "1.85010150562131";
         }
 
+        //1---NO---0
+        //2---YES---1.0659941799098
         if (this.form.InvasionSelect == 1) {
           this.form.Invasion = "0";
         } else if (this.form.InvasionSelect == 2) {
           this.form.Invasion = "1.0659941799098";
         }
+        //将整理好的数据使用axios发送给后端处理，并获取返回结果
         api.aacList(form).then((res) => {
           this.predicted = res.data.predicted;
           this.risk = res.data.risk;

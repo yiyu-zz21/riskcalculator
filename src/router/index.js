@@ -25,7 +25,7 @@ const routes = [
     component: () => import('../views/Dcc.vue')
   },
   {
-    path: '/aac',
+    path: '/dpc',
     name: 'Aac',
     component: () => import('../views/Aac.vue')
   },

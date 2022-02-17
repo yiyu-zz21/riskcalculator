@@ -176,12 +176,18 @@ export default {
     }
   },
   methods: {
+    //点击提交后执行此方法
     onSubmit(form) {
+      //首先判断必填项是否都以填写
       if (this.form.InvasionSelect.length == 0 || this.form.Diameter.length == 0 || this.form.DiffSelect.length == 0 || this.form.CA199.length == 0) {
         alert("请完整填写信息")
       } else {
         console.log(form);
-        //转换成数字字符串传输
+        //转换成数字字符串传输，转换关系如下
+        //1---well---0
+        //2---moderate---0.306069812946038
+        //3---poor---1.18855946498196
+
         if (this.form.DiffSelect == 1) {
           this.form.TumorDiff = "0";
         } else if (this.form.DiffSelect == 2) {
@@ -190,11 +196,14 @@ export default {
           this.form.TumorDiff = "1.18855946498196";
         }
 
+        //1---NO---0
+        //2---YES---0.838741977906916
         if (this.form.InvasionSelect == 1) {
           this.form.Invasion = "0";
         } else if (this.form.InvasionSelect == 2) {
           this.form.Invasion = "0.838741977906916";
         }
+        //将整理好的数据使用axios发送给后端处理，并获取返回结果
         api.dccList(form).then((res) => {
           this.predicted = res.data.predicted;
           this.risk = res.data.risk;
